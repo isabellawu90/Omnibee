@@ -15,10 +15,12 @@ class DeliveryCard extends StatelessWidget {
         .setData({'is_delivered': true}, merge: true);
   }
 
+  // TODO: move to main db logic file
   bool _isOrderComplete(DocumentSnapshot doc) {
     return doc['is_delivered'] != null && doc['is_received'] != null;
   }
 
+  // TODO: move to main db logic file
   String _getEarnings() {
     double minEarnings = 0.0;
     for (int j = 0; j < document['user_id']['basket'].length; j++) {
@@ -28,6 +30,7 @@ class DeliveryCard extends StatelessWidget {
     return minEarnings.toStringAsFixed(2);
   }
 
+  // TODO: move to main db logic file
   List<Widget> _itemsToOrder(DocumentSnapshot document) {
     List<Widget> children = [];
     for (int i = 0; i < document['user_id']['basket'].length; i++) {
@@ -55,6 +58,7 @@ class DeliveryCard extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
+            // TODO: move to main db logic file
             ExpansionTile(
                 leading: Icon(Icons.fastfood),
                 title: Text(document['user_id']['name'] +
@@ -80,7 +84,7 @@ class DeliveryCardButtonBar extends StatelessWidget {
   final BuildContext context;
 
   DeliveryCardButtonBar(this.document, this.context);
-
+  // TODO: move to main db logic file
   void _markOrderComplete(DocumentSnapshot doc) {
     final db = Firestore.instance;
     db

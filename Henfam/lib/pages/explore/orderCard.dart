@@ -1,5 +1,4 @@
 import 'package:Henfam/services/paymentService.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -7,11 +6,12 @@ class OrderCard extends StatelessWidget {
   final DocumentSnapshot document;
 
   OrderCard(BuildContext context, {this.document});
-
+  // TODO: move to main db logic file
   bool _isOrderComplete(DocumentSnapshot doc) {
     return doc['is_received'] != null && doc['is_delivered'] != null;
   }
 
+  // TODO: move to main db logic file
   List<Widget> _itemsToOrder(DocumentSnapshot document) {
     List<Widget> children = [];
     for (int i = 0; i < document['user_id']['basket'].length; i++) {
@@ -39,6 +39,7 @@ class OrderCard extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
+            // TODO: move to main db logic file
             ExpansionTile(
                 leading: Icon(Icons.fastfood),
                 title: Text(document['user_id']['name'] +
@@ -67,7 +68,7 @@ class OrderCardButtonBar extends StatelessWidget {
   final BuildContext context;
 
   OrderCardButtonBar(this.document, this.context);
-
+  // TODO: move to main db logic file
   MainAxisAlignment _getAlignment() {
     if (document['is_delivered'] == null || document['is_delivered'] == false) {
       return MainAxisAlignment.end;
@@ -80,6 +81,7 @@ class OrderCardButtonBar extends StatelessWidget {
     // TODO: Commented code: in-app payments. Live code: marketplace transfers.
     // PaymentService.payment(
     //     doc, context, 50.0, doc['user_id']['payment_method_id']);
+    // TODO: Change 10.0, 1.23 to actual price and fee numbers
     PaymentService.paymentTransfer(doc, context, 10.0, 1.23,
         doc['user_id']['payment_method_id'], doc['stripeAccountId']);
   }

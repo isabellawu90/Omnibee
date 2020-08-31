@@ -24,6 +24,7 @@ class AcceptOrderInfo extends StatelessWidget {
     );
   }
 
+  // TODO: move to main db logic file
   String _getStartAndEndLocations() {
     String startLocation = requests[0]['user_id']['rest_name_used'];
     List<String> endLocations = [];
@@ -52,6 +53,7 @@ class AcceptOrderInfo extends StatelessWidget {
     return "$startLocation to $locations";
   }
 
+  // TODO: move to main db logic file
   String _getDeliveryRange() {
     String lowerBoundTime = '';
     String upperBoundTime = '';

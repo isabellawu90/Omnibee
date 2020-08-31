@@ -191,6 +191,7 @@ class PaymentService {
     });
   }
 
+  // TODO: move to main db logic file
   static void createAccount(String email) {
     print("createAccount");
     createConnAccount.call(<String, dynamic>{

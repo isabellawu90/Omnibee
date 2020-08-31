@@ -31,7 +31,7 @@ class Auth implements BaseAuth {
     AuthResult result = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: password);
     FirebaseUser user = result.user;
-
+    // TODO: move to main db logic file
     firestoreInstance.collection("users").document(user.uid).setData({
       'name': name,
       'email': email,

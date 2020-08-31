@@ -6,7 +6,7 @@ class MinEarnings extends StatelessWidget {
   List<bool> selectedList;
 
   MinEarnings(this.requests, this.selectedList);
-
+  // TODO: move to main db logic file
   String _getMinEarnings() {
     double minEarnings = 0;
     for (int i = 0; i < requests.length; i++) {

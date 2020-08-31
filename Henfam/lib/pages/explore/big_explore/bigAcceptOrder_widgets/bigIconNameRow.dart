@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class IconNameRow extends StatelessWidget {
-  List<DocumentSnapshot> requests;
+  List<DocumentSnapshot> requests; // TODO: move to main db logic file
   List<bool> selectedList;
 
   IconNameRow(this.requests, this.selectedList);
@@ -24,7 +24,7 @@ class IconNameRow extends StatelessWidget {
 }
 
 class TinyIconAndName extends StatelessWidget {
-  DocumentSnapshot request;
+  DocumentSnapshot request; // TODO: move to main db logic file
 
   TinyIconAndName(this.request);
 

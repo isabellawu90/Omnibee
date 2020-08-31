@@ -27,6 +27,7 @@ class Profile extends StatelessWidget {
     }
   }
 
+  // TODO: move to main db logic file
   Future<String> _getName() async {
     final _firestore = Firestore.instance;
     final docSnapShot =
@@ -34,6 +35,7 @@ class Profile extends StatelessWidget {
     return docSnapShot['name'];
   }
 
+  // TODO: move to main db logic file
   Future<String> _getEmail() async {
     final _firestore = Firestore.instance;
     final docSnapShot =
@@ -66,6 +68,7 @@ class Profile extends StatelessWidget {
       PaymentService.createAccountLink(accountId);
   }
 
+  // TODO: move to main db logic file
   void _stripeAccount() {
     bool setup = true;
     String accountId;

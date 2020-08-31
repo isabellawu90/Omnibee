@@ -14,6 +14,7 @@ class DeliveryCardPage extends StatelessWidget {
         .setData({'is_delivered': true}, merge: true);
   }
 
+  // TODO: move to main db logic file
   bool _isDeliveryComplete(DocumentSnapshot doc) {
     return doc['is_delivered'] != null;
   }
@@ -45,6 +46,7 @@ class DeliveryCardPage extends StatelessWidget {
     );
   }
 
+  // TODO: move to main db logic file
   Widget _getRequesterName(DocumentSnapshot doc) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(30, 5, 0, 10),
@@ -52,6 +54,7 @@ class DeliveryCardPage extends StatelessWidget {
     );
   }
 
+  // TODO: move to main db logic file
   Widget _getYourItems(DocumentSnapshot doc) {
     return Padding(
       padding: EdgeInsets.fromLTRB(30, 5, 0, 10),
@@ -74,6 +77,7 @@ class DeliveryCardPage extends StatelessWidget {
     );
   }
 
+  // TODO: move to main db logic file
   Widget _getDeliveryWindow(DocumentSnapshot doc) {
     String startTime = doc['user_id']['delivery_window']['start_time'];
     String endTime = doc['user_id']['delivery_window']['end_time'];
@@ -83,6 +87,7 @@ class DeliveryCardPage extends StatelessWidget {
     );
   }
 
+  // TODO: move to main db logic file
   Widget _getDeliveryLocation(DocumentSnapshot doc) {
     String location = doc['user_id']['location'];
     List<String> wordList = location.split(',');

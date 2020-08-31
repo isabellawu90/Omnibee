@@ -16,6 +16,7 @@ class RestaurantCard extends StatelessWidget {
         builder: (context, state) {
       return GestureDetector(
         onTap: () {
+          // TODO: move to main db logic file
           GeoPoint position = document['location'];
           List<double> location = [position.latitude, position.longitude];
           Restaurant selectedRestaurant = Restaurant(
@@ -41,6 +42,7 @@ class RestaurantCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+                    // TODO: move to main db logic file
                     Text(document['rest_name'],
                         style: TextStyle(fontWeight: FontWeight.bold)),
                     Padding(padding: EdgeInsets.only(bottom: 7)),

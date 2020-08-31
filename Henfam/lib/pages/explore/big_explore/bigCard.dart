@@ -5,7 +5,7 @@ class BigCard extends StatelessWidget {
   final DocumentSnapshot document;
 
   BigCard(BuildContext context, {this.document});
-
+  // TODO: move to main db logic file
   List<Widget> _itemsToOrder(DocumentSnapshot document) {
     List<Widget> children = [];
     for (int i = 0; i < document['user_id']['basket'].length; i++) {
@@ -39,6 +39,7 @@ class BigCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             ExpansionTile(
+                // TODO: move to main db logic file
                 leading: Icon(Icons.fastfood),
                 title: Text(document['user_id']['name'] +
                     ": " +

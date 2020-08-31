@@ -9,7 +9,7 @@ class BigMode extends StatefulWidget {
 
 class _BigModeState extends State<BigMode> {
   Timestamp tiempo = Timestamp.now();
-
+  // TODO: move to main db logic file
   bool _allRunsAccepted(documents) {
     for (int i = 0; i < documents.length; i++) {
       if (documents[i]['user_id']['is_accepted'] == false) {
@@ -83,6 +83,7 @@ class _BigModeState extends State<BigMode> {
                         ),
                       );
                     }
+                    // TODO: move to main db logic file
                     return ListView.builder(
                         itemCount: snapshot.data.documents.length,
                         scrollDirection: Axis.vertical,

@@ -44,6 +44,7 @@ class _AcceptOrderState extends State<AcceptOrder> {
     return "${numRequests.toString()} items";
   }
 
+  // TODO: move to main db logic file
   void _markOrdersAccepted(List<DocumentSnapshot> docList) async {
     final uid = await _getUserID();
     final firestore = Firestore.instance;
@@ -68,6 +69,7 @@ class _AcceptOrderState extends State<AcceptOrder> {
     });
   }
 
+  // TODO: move to main db logic file
   void _isStripeSetup(List<DocumentSnapshot> docList) async {
     final uid = await _getUserID();
     final firestore = Firestore.instance;

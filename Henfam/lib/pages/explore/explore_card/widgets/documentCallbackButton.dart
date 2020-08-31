@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class DocumentCallbackButton extends StatelessWidget {
   final String _label;
   final Function _callback;
-  final DocumentSnapshot _document;
+  final DocumentSnapshot _document; // TODO: move to main db logic file
   final BuildContext _context;
 
   DocumentCallbackButton(

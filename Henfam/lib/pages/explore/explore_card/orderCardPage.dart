@@ -13,7 +13,7 @@ class OrderCardPage extends StatefulWidget {
 
 class _OrderCardPageState extends State<OrderCardPage> {
   final db = Firestore.instance;
-
+  // TODO: move to main db logic file
   bool _isDeliveryComplete(DocumentSnapshot doc) {
     return doc['is_delivered'] != null;
   }
@@ -23,7 +23,7 @@ class _OrderCardPageState extends State<OrderCardPage> {
   //   PaymentService.payment(
   //       doc, context, 100.0, doc['user_id']['payment_method_id']);
   // }
-
+  // TODO: move to main db logic file
   String _getExpirationTime(DocumentSnapshot doc) {
     DateTime time = doc['user_id']['expiration_time'].toDate();
     final DateFormat formatter = DateFormat('jm');
@@ -31,22 +31,26 @@ class _OrderCardPageState extends State<OrderCardPage> {
     return formatted;
   }
 
+  // TODO: move to main db logic file
   String _getDeliveryLocation(DocumentSnapshot doc) {
     String location = doc['user_id']['location'];
     List<String> wordList = location.split(',');
     return wordList[0];
   }
 
+  // TODO: move to main db logic file
   String _getDeliveryWindow(DocumentSnapshot doc) {
     String startTime = doc['user_id']['delivery_window']['start_time'];
     String endTime = doc['user_id']['delivery_window']['end_time'];
     return "$startTime to $endTime";
   }
 
+  // TODO: move to main db logic file
   void _deleteDocument(DocumentSnapshot doc, BuildContext context) async {
     await db.collection('orders').document(doc.documentID).delete();
   }
 
+  // TODO: move to main db logic file
   Widget _stillWaitingForMatch(DocumentSnapshot doc) {
     if (doc['user_id']['is_accepted'] == true) {
       return Container(child: Text('You have been paired with a big bee!'));
@@ -67,6 +71,7 @@ class _OrderCardPageState extends State<OrderCardPage> {
     }
   }
 
+  // TODO: move to main db logic file
   Widget _getYourItems(DocumentSnapshot doc) {
     return Padding(
       padding: EdgeInsets.fromLTRB(30, 10, 0, 0),
@@ -89,6 +94,7 @@ class _OrderCardPageState extends State<OrderCardPage> {
     );
   }
 
+  // TODO: move to main db logic file
   Widget _getDeliveryInformation(DocumentSnapshot doc) {
     return Padding(
       padding: const EdgeInsets.only(left: 15.0),
@@ -124,6 +130,7 @@ class _OrderCardPageState extends State<OrderCardPage> {
     );
   }
 
+  // TODO: move to main db logic file
   Widget _getOrderInformation(DocumentSnapshot doc) {
     return Padding(
       padding: const EdgeInsets.only(left: 15.0),

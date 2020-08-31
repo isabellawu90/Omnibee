@@ -7,17 +7,19 @@ import 'package:flutter/material.dart';
 class CurrentOrders extends StatelessWidget {
   final _firestore = Firestore.instance;
   BaseAuth _auth = Auth();
-
+  // TODO: move to main db logic file
   Future<String> _getUserId() async {
     final user = await _auth.getCurrentUser();
     return user.uid;
   }
 
+  // TODO: move to main db logic file
   Stream<QuerySnapshot> _getUserOrders(String uid) {
     final ordersRef = _firestore.collection('orders');
     return ordersRef.where('user_id.uid', isEqualTo: uid).snapshots();
   }
 
+  // TODO: move to main db logic file
   Stream<QuerySnapshot> _getUserDeliveries(String uid) {
     final ordersRef = _firestore.collection('orders');
     return ordersRef.where('user_id.runner', isEqualTo: uid).snapshots();
@@ -37,6 +39,7 @@ class CurrentOrders extends StatelessWidget {
                   stream: _getUserOrders(uid.data),
                   builder: (context, snapshot) {
                     if (!snapshot.hasData) return Container();
+                    // TODO: move to main db logic file
                     return ExpansionTile(
                       title: Text(
                         'Your Orders',
@@ -60,6 +63,7 @@ class CurrentOrders extends StatelessWidget {
                         'Your Deliveries',
                         style: TextStyle(fontSize: 18),
                       ),
+                      // TODO: move to main db logic file
                       children: snapshot.data.documents
                           .map<Widget>((doc) => DeliveryCard(
                                 context,

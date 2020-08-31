@@ -17,7 +17,7 @@ class _MenuState extends State<Menu> {
       DocumentSnapshot document, List<FoodInfo> order) async {
     final result = await Navigator.pushNamed(context, '/menu_order_form',
         arguments: FoodDocument(
-          document: document,
+          document: document, // TODO: move to main db logic file
           index: index,
           order: order,
         )) as FoodDocument;
@@ -102,7 +102,7 @@ class _MenuState extends State<Menu> {
                             Menu.onPressed = () {};
                           }
                         });
-                      },
+                      }, // TODO: move to main db logic file
                       title: Text(document['food'][index]['name']),
                       subtitle: Wrap(direction: Axis.vertical, children: [
                         Text(document['food'][index]['desc']),

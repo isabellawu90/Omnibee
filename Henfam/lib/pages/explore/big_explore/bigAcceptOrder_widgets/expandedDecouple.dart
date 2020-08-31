@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class ExpandedDecouple extends StatefulWidget {
-  List<DocumentSnapshot> requests;
+  List<DocumentSnapshot> requests; // TODO: move to main db logic file
   List<bool> selectedList;
   Function changeCheckBox;
 

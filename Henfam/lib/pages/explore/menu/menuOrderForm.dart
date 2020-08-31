@@ -25,7 +25,7 @@ class FoodInfo {
 }
 
 class FoodDocument {
-  final DocumentSnapshot document;
+  final DocumentSnapshot document; // TODO: move to main db logic file
   final int index;
   List<FoodInfo> order;
 
@@ -54,6 +54,7 @@ class _MenuOrderFormState extends State<MenuOrderForm> {
     });
   }
 
+  // TODO: move to main db logic file
   List<MenuItem> _getAddOns(items, selectedAddOns) {
     List<MenuItem> finalAddOns = [];
     for (int i = 0; i < selectedAddOns.length; i++) {
@@ -69,6 +70,7 @@ class _MenuOrderFormState extends State<MenuOrderForm> {
     return finalAddOns;
   }
 
+  // TODO: move to main db logic file
   double _getPrice(item, selectedAddOns) {
     double finalPrice = item['price'];
     for (int i = 0; i < selectedAddOns.length; i++) {
@@ -93,7 +95,7 @@ class _MenuOrderFormState extends State<MenuOrderForm> {
     for (int i = 0; i < addOns.length; i++) {
       _addOnsSelected.add(false);
     }
-
+    // TODO: move to main db logic file
     return BlocBuilder<BasketBloc, BasketState>(builder: (context2, state) {
       return Scaffold(
         bottomNavigationBar: SizedBox(
