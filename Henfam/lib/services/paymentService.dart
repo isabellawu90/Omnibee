@@ -191,12 +191,12 @@ class PaymentService {
     });
   }
 
-  // TODO: move to main db logic file
   static void createAccount(String email) {
     print("createAccount");
     createConnAccount.call(<String, dynamic>{
       'email': email,
     }).then((response) {
+      // TODO: move to main db logic file
       FirebaseAuth.instance.currentUser().then((user) {
         Firestore.instance
             .collection('users')
