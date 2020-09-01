@@ -16,6 +16,7 @@ class OrderEntity extends Equatable {
   final String runner_uid;
   final String restaurant_pic;
   final String pmID;
+  final String stripeAccountId;
   final String docID;
 
   const OrderEntity(
@@ -33,6 +34,7 @@ class OrderEntity extends Equatable {
     this.runner_uid,
     this.restaurant_pic,
     this.pmID,
+    this.stripeAccountId,
     this.docID,
   );
 
@@ -52,6 +54,7 @@ class OrderEntity extends Equatable {
       "runner": runner_uid,
       "restaurant_pic": restaurant_pic,
       "pmID": pmID,
+      "stripeAccountId": stripeAccountId,
       "docID": docID,
     };
   }
@@ -72,12 +75,13 @@ class OrderEntity extends Equatable {
         runner_uid,
         restaurant_pic,
         pmID,
+        stripeAccountId,
         docID,
       ];
 
   @override
   String toString() {
-    return 'OrderEntity { name: $name, uid: $uid, user_coordinates: $user_coordinates, rest_name_used: $rest_name_used, restaurant_coordinates: $restaurant_coordinates, basket: $basket, location: $location, start_time: $start_time, end_time: $end_time, expiration_time: $expiration_time, is_accepted: $is_accepted, runner: $runner_uid, restaurant_pic: $restaurant_pic, pmID: $pmID, docID: $docID }';
+    return 'OrderEntity { name: $name, uid: $uid, user_coordinates: $user_coordinates, rest_name_used: $rest_name_used, restaurant_coordinates: $restaurant_coordinates, basket: $basket, location: $location, start_time: $start_time, end_time: $end_time, expiration_time: $expiration_time, is_accepted: $is_accepted, runner: $runner_uid, restaurant_pic: $restaurant_pic, pmID: $pmID, stripeAccountId: $stripeAccountId, docID: $docID }';
   }
 
   static OrderEntity fromJson(Map<String, Object> json) {
@@ -96,6 +100,7 @@ class OrderEntity extends Equatable {
       json["runner_uid"] as String,
       json["restaurant_pic"] as String,
       json["pmID"] as String,
+      json["stripeAccountId"] as String,
       json["docID"] as String,
     );
   }
@@ -119,6 +124,7 @@ class OrderEntity extends Equatable {
         "runner": runner_uid,
         "restaurant_pic": restaurant_pic,
         "pmID": pmID,
+        "stripeAccountId": stripeAccountId,
       }
     };
   }

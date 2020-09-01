@@ -7,4 +7,6 @@ abstract class OrdersRepository {
   Future<void> deleteOrder(Order order);
 
   Future<void> updateTodo(Order order);
+
+  Future<void> markOrderComplete(Order order);
 }

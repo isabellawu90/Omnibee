@@ -19,6 +19,7 @@ class Order {
   final String runner_uid;
   final String restaurant_pic;
   final String pmID;
+  final String stripeAccountId;
   final String docID;
 
   Order(
@@ -36,6 +37,7 @@ class Order {
     this.runner_uid,
     this.restaurant_pic,
     this.pmID,
+    this.stripeAccountId,
     this.docID,
   );
 
@@ -54,6 +56,7 @@ class Order {
       String runner_uid,
       String restaurant_pic,
       String pmID,
+      String stripeAccountId,
       String docID}) {
     return Order(
       name,
@@ -70,6 +73,7 @@ class Order {
       runner_uid,
       restaurant_pic,
       pmID,
+      stripeAccountId,
       docID,
     );
   }
@@ -90,6 +94,7 @@ class Order {
       runner_uid.hashCode ^
       restaurant_pic.hashCode ^
       pmID.hashCode ^
+      stripeAccountId.hashCode ^
       docID.hashCode;
 
   @override
@@ -111,11 +116,12 @@ class Order {
           runner_uid == other.runner_uid &&
           restaurant_pic == other.restaurant_pic &&
           pmID == other.pmID &&
+          stripeAccountId == other.stripeAccountId &&
           docID == other.docID;
 
   @override
   String toString() {
-    return 'Order { name: $name, uid: $uid, user_coordinates: $user_coordinates, rest_name_used: $rest_name_used, restaurant_coordinates: $restaurant_coordinates, basket: $basket, location: $location, start_time: $start_time, end_time: $end_time, expiration_time: $expiration_time, is_accepted: $is_accepted, runner: $runner_uid, restaurant_pic: $restaurant_pic, pmID: $pmID, docID: $docID }';
+    return 'Order { name: $name, uid: $uid, user_coordinates: $user_coordinates, rest_name_used: $rest_name_used, restaurant_coordinates: $restaurant_coordinates, basket: $basket, location: $location, start_time: $start_time, end_time: $end_time, expiration_time: $expiration_time, is_accepted: $is_accepted, runner: $runner_uid, restaurant_pic: $restaurant_pic, pmID: $pmID, stripeAccountId: $stripeAccountId, docID: $docID }';
   }
 
   OrderEntity toEntity() {
@@ -134,6 +140,7 @@ class Order {
       runner_uid,
       restaurant_pic,
       pmID,
+      stripeAccountId,
       docID,
     );
   }
@@ -154,6 +161,7 @@ class Order {
       entity.runner_uid,
       entity.restaurant_pic,
       entity.pmID,
+      entity.stripeAccountId,
       entity.docID,
     );
   }
