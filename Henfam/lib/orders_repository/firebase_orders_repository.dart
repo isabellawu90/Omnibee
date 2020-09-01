@@ -23,4 +23,10 @@ class FirebaseOrdersRepository implements OrdersRepository {
         .document(order.docID)
         .updateData(order.toEntity().toDocument());
   }
+
+  @override
+  Future<void> markOrderComplete(Order order) {
+    // TODO: implement markOrderComplete
+    throw UnimplementedError();
+  }
 }
